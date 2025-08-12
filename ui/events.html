@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Events | Operation Meraki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="images/logo/logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="components/m-header.js" type="module"></script>
+  <script src="components/m-footer.js" type="module"></script>
+  <style>
+    body { margin:0; font-family:'Segoe UI',sans-serif; background:#f5f5f5; }
+    h1 { text-align:center; margin:40px 0 20px; }
+    .search-bar { display:flex; justify-content:center; align-items:center; gap:10px; margin-bottom:30px; }
+    .search-bar input { padding:8px 12px; font-size:1rem; border:1px solid #ccc; border-radius:4px; outline:none; width:220px; }
+    .search-bar select { padding:6px 10px; font-size:.9rem; border:1px solid #ccc; border-radius:4px; width:140px; }
+    .search-bar button { background:#0074D9; color:#fff; border:none; padding:8px 12px; border-radius:4px; cursor:pointer; display:flex; align-items:center; gap:5px; }
+    .toggle-btn { background:#FF851B; color:#fff; }
+    .toggle-btn:hover { background:#e07116; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:24px; padding:0 5% 60px; }
+    .card { background:#fff; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,.08); overflow:hidden; display:flex; flex-direction:column; transition:transform .2s ease; }
+    .card:hover { transform:translateY(-5px); }
+    .card img { width:100%; height:200px; object-fit:cover; }
+    .card-content { padding:20px; }
+    .card-content h3 { margin:0 0 10px; font-size:1.4rem; }
+    .card-content p { margin:6px 0; font-size:.95rem; }
+    .card-content a { color:#0074D9; text-decoration:none; }
+    .card-content a:hover { text-decoration:underline; }
+    .buttons { display:flex; justify-content:space-between; margin-top:15px; }
+    .buttons button { padding:8px 14px; font-size:.9rem; border:none; border-radius:6px; cursor:pointer; color:#fff; transition:background .2s; }
+    .rsvp-btn { background:#0074D9; } .rsvp-btn:hover { background:#005bb5; }
+    .vol-btn { background:#FF4136; } .vol-btn:hover { background:#c12f28; }
+    .modal { position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,.6); display:none; justify-content:center; align-items:center; z-index:999; }
+    .modal-content { background:#fff; border-radius:10px; padding:30px; max-width:600px; width:100%; position:relative; }
+    .modal-content h2 { margin-top:0; }
+    .modal-content input, .modal-content select { width:100%; padding:8px; margin-top:8px; margin-bottom:12px; border:1px solid #ccc; border-radius:6px; }
+    .modal-content button.submit-btn { background:#0074D9; color:#fff; padding:10px 16px; border:none; border-radius:6px; cursor:pointer; }
+    .close { position:absolute; right:16px; top:16px; font-size:1.2rem; cursor:pointer; }
+    .msg { min-height:1.25rem; text-align:center; margin-top:6px; }
+  </style>
+</head>
+<body>
+  <m-header active="events"></m-header>
+
+  <h1>Upcoming Events</h1>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search events..." />
+    <button onclick="filterEvents()">🔍 Search</button>
+    <select id="monthFilter" onchange="renderEvents(allEvents)">
+      <option value="all">All Months</option>
+      <option value="0">January</option><option value="1">February</option><option value="2">March</option>
+      <option value="3">April</option><option value="4">May</option><option value="5">June</option>
+      <option value="6">July</option><option value="7">August</option><option value="8">September</option>
+      <option value="9">October</option><option value="10">November</option><option value="11">December</option>
+    </select>
+    <button id="pastEventsBtn" class="toggle-btn" onclick="togglePastEvents()">Past Events</button>
+  </div>
+
+  <div class="grid" id="eventsContainer"></div>
+
+  <!-- RSVP Modal -->
+  <div class="modal" id="rsvpModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('rsvpModal')">×</span>
+      <h2>RSVP Form</h2>
+      <form id="rsvpForm">
+        <input type="hidden" id="rsvpEventId" />
+        <input placeholder="First Name" id="rsvpFirst" required />
+        <input placeholder="Last Name" id="rsvpLast" required />
+        <input type="email" placeholder="Email" id="rsvpEmail" required />
+        <input placeholder="Phone Number" id="rsvpPhone" required />
+        <input placeholder="State" id="rsvpState" required />
+        <input placeholder="Town" id="rsvpTown" required />
+        <input placeholder="Number of People Attending" id="rsvpCount" type="number" required />
+        <label>Are you a Veteran?</label>
+        <select id="rsvpVet" required>
+          <option value="">Select</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+        <button type="submit" class="submit-btn">Submit</button>
+        <div id="rsvpMsg" class="msg" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Volunteer Modal -->
+  <div class="modal" id="volunteerModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('volunteerModal')">×</span>
+      <h2>Volunteer Registration</h2>
+      <form id="volForm">
+        <input type="hidden" id="volEventId" />
+        <input placeholder="First Name" id="volFirst" required />
+        <input placeholder="Last Name" id="volLast" required />
+        <input type="email" placeholder="Email" id="volEmail" required />
+        <input placeholder="Phone Number" id="volPhone" required />
+        <input placeholder="State" id="volState" required />
+        <input placeholder="Town" id="volTown" required />
+        <input placeholder="How did you hear about us?" id="volSource" />
+        <input placeholder="Age Group (e.g. 18–25)" id="volAge" />
+        <label>Are you a Veteran?</label>
+        <select id="volVet" required>
+          <option value="">Select</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+        <button type="submit" class="submit-btn">Submit</button>
+        <div id="volMsg" class="msg" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
+  <m-footer></m-footer>
+
+  <script>
+    let allEvents = [];
+    let showPastEvents = false;
+
+    async function loadEvents() {
+      const container = document.getElementById('eventsContainer');
+      container.innerHTML = '<p>Loading events...</p>';
+      try {
+        const res = await fetch('/api/events');
+        if (!res.ok) throw new Error('Failed to fetch events');
+        allEvents = await res.json();
+        renderEvents(allEvents);
+      } catch (err) {
+        container.innerHTML = `<p style="color:red;">Error loading events: ${err.message}</p>`;
+      }
+    }
+
+    function renderEvents(events) {
+      const container = document.getElementById('eventsContainer');
+      container.innerHTML = '';
+      const today = new Date();
+
+      let filtered = events.filter(e => {
+        const eventDate = new Date(e.date);
+        return showPastEvents || eventDate >= today;
+      });
+
+      const month = document.getElementById('monthFilter').value;
+      if (month !== 'all') filtered = filtered.filter(e => new Date(e.date).getMonth() === parseInt(month));
+
+      if (!filtered.length) { container.innerHTML = '<p>No events found.</p>'; return; }
+      filtered.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+      filtered.forEach((e, i) => {
+        const isPast = new Date(e.date) < today;
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="https://picsum.photos/400/200?random=${i + 1}" alt="Event Image" />
+          <div class="card-content">
+            <h3>${e.title || 'Untitled Event'}</h3>
+            <p>📅 <strong>Date:</strong> ${formatDate(e.date)}</p>
+            <p>⏰ <strong>Time:</strong> ${e.start_time || 'TBA'}</p>
+            <p>⏳ <strong>Duration:</strong> ${e.duration || 'TBA'}</p>
+            <p>📍 <strong>Location:</strong> 
+              <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.location || '')}" target="_blank">
+                ${e.location || 'TBA'}
+              </a>
+            </p>
+            <p>${e.description || ''}</p>
+            ${!isPast ? `
+              <div class="buttons">
+                <button class="vol-btn" onclick="openModal('volunteerModal', ${e.id})">Volunteer</button>
+                <button class="rsvp-btn" onclick="openModal('rsvpModal', ${e.id})">RSVP</button>
+              </div>`
+            : '<p style="color:red; font-weight:bold;">This event has passed.</p>'}
+          </div>`;
+        container.appendChild(card);
+      });
+    }
+
+    function filterEvents() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = allEvents.filter(e =>
+        (e.title || '').toLowerCase().includes(q) ||
+        (e.description || '').toLowerCase().includes(q) ||
+        (e.location || '').toLowerCase().includes(q)
+      );
+      renderEvents(filtered);
+    }
+
+    function togglePastEvents() {
+      showPastEvents = !showPastEvents;
+      const btn = document.getElementById('pastEventsBtn');
+      if (btn) btn.textContent = showPastEvents ? 'Upcoming Events' : 'Past Events';
+      renderEvents(allEvents);
+    }
+
+    function formatDate(s) {
+      if (!s) return 'TBA';
+      const d = new Date(s);
+      return d.toLocaleDateString('en-US', { day:'numeric', month:'long', year:'numeric' });
+    }
+
+    function openModal(id, eventId) {
+      document.getElementById(id).style.display = 'flex';
+      if (id === 'rsvpModal') document.getElementById('rsvpEventId').value = eventId;
+      if (id === 'volunteerModal') document.getElementById('volEventId').value = eventId;
+      const msg = id === 'rsvpModal' ? document.getElementById('rsvpMsg') : document.getElementById('volMsg');
+      if (msg) msg.textContent = '';
+    }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+
+    document.getElementById('rsvpForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = document.getElementById('rsvpMsg');
+      msg.style.color = '#374151';
+      msg.textContent = 'Submitting...';
+
+      const body = {
+        event_id: document.getElementById('rsvpEventId').value,
+        first_name: document.getElementById('rsvpFirst').value,
+        last_name: document.getElementById('rsvpLast').value,
+        email: document.getElementById('rsvpEmail').value,
+        phone: document.getElementById('rsvpPhone').value,
+        state: document.getElementById('rsvpState').value,
+        town: document.getElementById('rsvpTown').value,
+        people_count: parseInt(document.getElementById('rsvpCount').value, 10),
+        is_veteran: document.getElementById('rsvpVet').value === 'true',
+        role: 'veteran'
+      };
+
+      try {
+        const res = await fetch('/api/events/respond', {
+          method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(body)
+        });
+        const text = await res.text();
+        msg.style.color = res.ok ? 'green' : 'crimson';
+        msg.textContent = text || (res.ok ? 'Submitted.' : 'Failed to submit.');
+        if (res.ok) setTimeout(() => closeModal('rsvpModal'), 900);
+      } catch (err) {
+        msg.style.color = 'crimson';
+        msg.textContent = 'Network error. Please try again.';
+      }
+    });
+
+    document.getElementById('volForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = document.getElementById('volMsg');
+      msg.style.color = '#374151';
+      msg.textContent = 'Submitting...';
+
+      const body = {
+        event_id: document.getElementById('volEventId').value,
+        first_name: document.getElementById('volFirst').value,
+        last_name: document.getElementById('volLast').value,
+        email: document.getElementById('volEmail').value,
+        phone: document.getElementById('volPhone').value,
+        state: document.getElementById('volState').value,
+        town: document.getElementById('volTown').value,
+        heard_from: document.getElementById('volSource').value,
+        age_group: document.getElementById('volAge').value,
+        is_veteran: document.getElementById('volVet').value === 'true',
+        role: 'volunteer'
+      };
+
+      try {
+        const res = await fetch('/api/events/respond', {
+          method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(body)
+        });
+        const text = await res.text();
+        msg.style.color = res.ok ? 'green' : 'crimson';
+        msg.textContent = text || (res.ok ? 'Submitted.' : 'Failed to submit.');
+        if (res.ok) setTimeout(() => closeModal('volunteerModal'), 900);
+      } catch (err) {
+        msg.style.color = 'crimson';
+        msg.textContent = 'Network error. Please try again.';
+      }
+    });
+
+    loadEvents();
+  </script>
+</body>
+</html>

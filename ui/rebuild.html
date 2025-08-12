@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Rebuild Program - Operation Meraki</title>
+    <link rel="icon" href="images/logo/logo.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="program-shared.css" />
+    <style>
+
+    </style>
+    <script src="components/m-header.js" type="module"></script>
+    <script src="components/m-footer.js" type="module"></script>
+  </head>
+  <body>
+    <m-header active="programs"></m-header>
+
+    <div class="main-wrapper">
+      <!-- Program Details Sidebar -->
+
+      <aside class="program-details-sidebar">
+        <section class="hero-image-section">
+          <img class="hero-image" src="images/program/rebuild.png">
+        </section>
+        <div class="program-details-title">Details</div>
+        <div class="program-details-item">
+          <img class="icon" src="images/program/check.svg" />
+          <p class="title">Equipment included</p>
+        </div>
+        <div class="program-details-item">
+          <img class="icon" src="images/program/calendar.svg" />
+          <p class="title">Weekly Workshops</p>
+        </div>
+        <div class="program-details-item">
+          <img class="icon" src="images/program/clock.svg" />
+          <p class="title">1 hour program</p>
+        </div>
+        <div class="program-details-item">
+          <img class="icon" src="images/program/map-pin.svg" />
+          <p class="title">Ohio</p>
+        </div>
+        <div class="program-details-item">
+          <img class="icon" src="images/program/thumb-up.svg" />
+          <p class="title">No Experience Needed</p>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <!-- Breadcrumb Navigation -->
+
+        <a href="programs.html" class="breadcrumb-navigation">
+          <div class="icon"></div>
+          Back to all programs
+        </a>
+
+        <!-- Hero -->
+
+        <section class="hero-section">
+          <div class="hero-title">Rebuild</div>
+          <div class="hero-description">
+            Peer support groups are a safe space where Veterans can discuss day-to-day problems with other Veterans who have experienced trauma. While support groups have not been shown to reduce PTSD symptoms on their own, they can help you feel better in different ways. They can provide a sense of connection to other people. Support groups can also help family members or friends who care for Veterans with PTSD.
+          </div>
+          <section class="hero-cta-section">
+            <m-button class="hero-cta">
+              <div style="padding-inline: 48px; display: flex; align-items: center;">
+                <img class="icon" src="images/program/share.svg" />
+                <div class="padding-bottom: 14px;">Share</div>
+              </div>
+            </m-button>
+            <m-button variant="primary" class="hero-cta">
+              <div style="padding-inline: 48px;">
+                Sign Up
+              </div>
+            </m-button>
+          </section>
+        </section>
+
+        <div class="main-content-divider"></div>
+
+        <!-- FAQ -->
+
+        <section class="faq-section">
+          <p class="faq-title">Frequently Asked Questions</p>
+          <div class="faq-item faq-1">
+            <div class="faq-q">
+              <div class="text">Can I bring a friend or family member?</div>
+              <div class="arrow"></div>
+            </div>
+            <div class="faq-a faq-a-1 hide">Yes, family members are encouraged to join our programs as part of the healing process.</div>
+          </div>
+          <div class="faq-item faq-2">
+            <div class="faq-q">
+              <div class="text">Do I have to pay anything?</div>
+              <div class="arrow"></div>
+            </div>
+            <div class="faq-a faq-a-2 hide">No, all Operation Meraki programs are completely free for veterans and their families.</div>
+          </div>
+          <div class="faq-item faq-3">
+            <div class="faq-q">
+              <div class="text">Do I need to bring any supplies?</div>
+              <div class="arrow"></div>
+            </div>
+            <div class="faq-a faq-a-3 hide">No, all necessary equipment and supplies will be provided for the program.</div>
+          </div>
+          <div class="faq-item faq-4">
+            <div class="faq-q">
+              <div class="text">What if I have no experience?</div>
+              <div class="arrow"></div>
+            </div>
+            <div class="faq-a faq-a-4 hide">Our programs are designed for all experience levels, from beginners to advanced. No prior experience is necessary.</div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+     <!-- Other Programs -->
+
+    <section class="other-programs-section">
+      <p class="title">Other Programs</p>
+      <div class="programs">
+        <div class="card-wrapper">
+          <div class="program-card">
+            <img class="cover" src="images/program/refocus.png">
+            <p class="title">Refocus</p>
+            <p class="description">Refocus uses photography and videography to address trauma through storytelling.</p>
+            <m-button variant="primary" class="cta" onclick="location.href='refocus.html'">Learn More</m-button>
+          </div>
+        </div>
+        <div class="card-wrapper">
+          <div class="program-card">
+            <img class="cover" src="images/program/re-engage.png">
+            <p class="title">ReEngage</p>
+            <p class="description">ReEngage is a career development program for Veterans transitioning to new missions and careers. </p>
+            <m-button variant="primary" class="cta" onclick="location.href='re-engage.html'">Learn More</m-button>
+          </div>
+        </div>
+        <div class="card-wrapper">
+          <div class="program-card">
+            <img class="cover" src="images/program/replant.png">
+            <p class="title">Replant</p>
+            <p class="description">RePlant is a sustainable farming program with indoor gardens in community spaces. </p>
+            <m-button variant="primary" class="cta" onclick="location.href='replant.html'">Learn More</m-button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <m-footer />
+
+    <div class="dialog-overlay hide">
+      <div class="sign-up-dialog">
+        <div class="sign-up-dialog-header">
+          <div class="title sign-up-title">Join Rebuild</div>
+          <div class="step-indicator">Page 1 of 2</div>
+          <img class="close" src="images/program/close.svg" />
+        </div>
+
+        <form class="sign-up-form">
+          <div class="sign-up-step-1">
+            <legend class="legend">General Infomation</legend>
+            <div class="group">
+              <div class="item">
+                <label class="label">First Name<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">Last Name<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">State<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">Email<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">Phone Number<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">Town<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+            </div>
+            <legend class="legend">How did you hear about us?</legend>
+            <div class="group">
+              <div class="item">
+                <label class="label">Choose from below</label>
+                <input class="input" />
+              </div>
+            </div>
+            <legend class="legend">How would you rate your mental health today?</legend>
+            <div class="radio-group">
+              <div class="radio">
+                <input type="checkbox" checked />
+                <div class="label">1</div>
+              </div>
+              <div class="radio">
+                <input type="checkbox" />
+                <div class="label">2</div>
+              </div>
+              <div class="radio">
+                <input type="checkbox" />
+                <div class="label">3</div>
+              </div>
+              <div class="radio">
+                <input type="checkbox" />
+                <div class="label">4</div>
+              </div>
+              <div class="radio">
+                <input type="checkbox" />
+                <div class="label">5</div>
+              </div>
+              <div class="radio">
+                <input type="checkbox" />
+                <div class="label">6</div>
+              </div>
+              <div class="radio">
+                <input type="checkbox" />
+                <div class="label">7</div>
+              </div>
+              <div class="radio">
+                <input type="checkbox" />
+                <div class="label">8</div>
+              </div>
+              <div class="radio">
+                <input type="checkbox" />
+                <div class="label">9</div>
+              </div>
+              <div class="radio">
+                <input type="checkbox" />
+                <div class="label">10</div>
+              </div>
+            </div>
+            <div class="radio-group-scale">
+              <p>Very bad</p>
+              <p>Very Good</p>
+            </div>
+
+            <div class="actions">
+              <button class="primary-action to-2">Next Page</button>
+            </div>
+          </div>
+          <div class="sign-up-step-2 hide">
+            <legend class="legend">What has been the most difficult part of returning?</legend>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" />
+                <div class="label">Feeling misunderstood</div>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" />
+                <div class="label">Family life</div>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" />
+                <div class="label">Lack of purpose</div>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" />
+                <div class="label">Lack of support</div>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" />
+                <div class="label">Other</div>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" />
+                <div class="label">Finding work</div>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" />
+                <div class="label">Trouble finding support</div>
+              </div>
+            </div>
+            <legend class="legend">Any comments for Operation Meraki?</legend>
+            <textarea class="input" placeholder="(Type here)"></textarea>
+            <div class="checkbox-item block">
+              <input type="checkbox" />
+              <div class="label">By checking this box, you give us permission to contact you with the information provided.</div>
+            </div>
+            <div class="actions">
+              <button class="secondary-action to-1">
+                <img src="images/program/back.svg" />
+                Back
+              </button>
+              <button class="primary-action to-signed-up">Submit</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="signed-up hide">
+          <img class="hero" src="images/program/high-five.svg" />
+          <p class="title">You’re all signed up.</p>
+          <div class="seperator"></div>
+          <p class="description">Operation Meraki will be in touch soon with the necessary details.</p>
+          <p class="share-call">Have a friend who would enjoy this program too?</p>
+          <button class="share-cta">Share</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      const elements = {
+        signUpButton: () => document.querySelector('.hero-cta-primary'),
+        dialogOverlay: () => document.querySelector('.dialog-overlay'),
+        signUpCloseButton: () => document.querySelector('.close'),
+        signUpStep1: () => document.querySelector('.sign-up-step-1'),
+        signUpStep2: () => document.querySelector('.sign-up-step-2'),
+        signedUp: () => document.querySelector('.signed-up'),
+        stepIndicator: () => document.querySelector('.step-indicator'),
+        signUp1To2: () => document.querySelector('.to-2'),
+        signUp2To1: () => document.querySelector('.to-1'),
+        signUp2ToSignedUp: () => document.querySelector('.to-signed-up'),
+        signUpDialogTitle: () => document.querySelector('.sign-up-title'),
+        faq1: () => document.querySelector('.faq-1'),
+        faq2: () => document.querySelector('.faq-2'),
+        faq3: () => document.querySelector('.faq-3'),
+        faq4: () => document.querySelector('.faq-4'),
+        faqA1: () => document.querySelector('.faq-a-1'),
+        faqA2: () => document.querySelector('.faq-a-2'),
+        faqA3: () => document.querySelector('.faq-a-3'),
+        faqA4: () => document.querySelector('.faq-a-4'),
+      }
+
+      function show(elementGetter) {
+        elementGetter().classList.remove('hide')
+      }
+
+      function hide(elementGetter) {
+        elementGetter().classList.add('hide')
+      }
+
+      function text(elementGetter, text) {
+        elementGetter().innerHTML = text
+      }
+
+      function listen(elementGetter, ev, fn) {
+        elementGetter().addEventListener(ev, (e) => {
+          e.preventDefault()
+          fn(e)
+        })
+      }
+
+      function transitionToSignUp() {
+        show(elements.dialogOverlay)
+        show(elements.signUpStep1)
+        hide(elements.signUpStep2)
+        hide(elements.signedUp)
+        show(elements.signUpDialogTitle)
+        text(elements.stepIndicator, 'Page 1 of 2')
+      }
+
+      function transitionToMain() {
+        hide(elements.dialogOverlay)
+      }
+
+      function transitionToSignUpStepTwo() {
+        hide(elements.signUpStep1)
+        show(elements.signUpStep2)
+        hide(elements.signedUp)
+        show(elements.signUpDialogTitle)
+        text(elements.stepIndicator, 'Page 2 of 2')
+      }
+
+      function transitionToSignedUp() {
+        hide(elements.signUpStep2)
+        show(elements.signedUp)
+        hide(elements.signUpDialogTitle)
+        text(elements.stepIndicator, '')
+      }
+
+      function createAnswerToggler(faqElementGetter, answerElementGetter) {
+        return function () {
+          faqElementGetter().classList.toggle('hide-answer')
+          answerElementGetter().classList.toggle('hide')
+        }
+      }
+
+      function wireUp() {
+        listen(elements.signUpButton, 'click', transitionToSignUp)
+        listen(elements.signUpCloseButton, 'click', transitionToMain)
+        listen(elements.signUp1To2, 'click', transitionToSignUpStepTwo)        
+        listen(elements.signUp2To1, 'click', transitionToSignUp)
+        listen(elements.signUp2ToSignedUp, 'click', transitionToSignedUp)
+        listen(elements.faq1, 'click', createAnswerToggler(elements.faq1, elements.faqA1))
+        listen(elements.faq2, 'click', createAnswerToggler(elements.faq2, elements.faqA2))
+        listen(elements.faq3, 'click', createAnswerToggler(elements.faq3, elements.faqA3))
+        listen(elements.faq4, 'click', createAnswerToggler(elements.faq4, elements.faqA4))
+      }
+
+      wireUp()
+    </script>
+  </body>
+</html>

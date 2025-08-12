@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | Operation Meraki</title>
+  <link rel="icon" href="images/logo/logo.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="components/m-header.js" type="module"></script>
+  <script src="components/m-footer.js" type="module"></script>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f3f4f6; }
+    .form-container { max-width: 500px; margin: 40px auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+    .header-image { display: block; margin: 0 auto 20px auto; width: 40%; max-width: 200px; height: auto; border-radius: 8px; }
+    h2 { text-align: center; margin-bottom: 1rem; }
+    label { display: block; margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600; }
+    input, select { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 5px; font-size: 1rem; }
+    button { margin-top: 2rem; width: 100%; background-color: #1d4ed8; color: white; border: none; padding: 0.75rem; font-size: 1rem; border-radius: 5px; cursor: pointer; }
+    button:hover { background-color: #2563eb; }
+    #message { margin-top: 1rem; text-align: center; color: green; }
+    .login-link { text-align: center; margin-top: 1rem; }
+    .login-link a { color: #1d4ed8; text-decoration: none; font-weight: bold; }
+    .login-link a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <m-header active="signin"></m-header>
+
+  <div class="form-container">
+    <img src="/images/thumbnail_image001.avif" alt="Operation Meraki Logo" class="header-image">
+    <h2>Sign Up</h2>
+    <form id="signinForm" novalidate>
+      <label for="email">Email</label>
+      <input type="email" id="email" autocomplete="email" required />
+
+      <label for="username">Username</label>
+      <input type="text" id="username" minlength="2" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" minlength="8" autocomplete="new-password" required />
+
+      <label for="usertype">I am a</label>
+      <select id="usertype" required>
+        <option value="veteran">Veteran</option>
+        <option value="volunteer">Volunteer</option>
+      </select>
+
+      <button type="submit">Register</button>
+      <p id="message"></p>
+    </form>
+    <div class="login-link">
+      Already a member? <a href="/loginform.html">Login</a>
+    </div>
+  </div>
+
+  <m-footer></m-footer>
+
+  <script>
+    const form = document.getElementById('signinForm');
+    const msg = document.getElementById('message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.textContent = '';
+
+      const email = document.getElementById('email').value.trim();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const usertype = document.getElementById('usertype').value;
+
+      try {
+        const response = await fetch('/api/signin', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password, username, usertype })
+        });
+
+        const result = await response.json();
+        msg.style.color = response.ok ? 'green' : 'crimson';
+        msg.textContent = result.message || (response.ok ? 'Registered.' : 'Registration failed.');
+
+        if (response.ok) {
+          alert('Registration successful!');
+          window.location.href = '/loginform.html';
+        }
+      } catch (err) {
+        console.error('Registration error:', err);
+        msg.style.color = 'crimson';
+        msg.textContent = 'Error during registration.';
+      }
+    });
+  </script>
+</body>
+</html>

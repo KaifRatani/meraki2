@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Operation Meraki</title>
+  <link rel="icon" href="images/logo/logo.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="components/m-header.js" type="module"></script>
+  <script src="components/m-footer.js" type="module"></script>
+
+  <style>
+    
+
+    section.mission {
+      width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      gap: 42px;
+      margin-top: 120px;
+    }
+    .missions {
+      display: flex;
+      flex-direction: column;
+    }
+    .missions .seperator {
+      height: 3px;
+      width: 100%;
+      background-color: #D9D9D9;
+      margin: 32px 0 48px;
+    }
+    div.mission {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 596px;
+      color: #04273C;
+    }
+    .mission h2 {
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 40px;
+      margin: 0;
+    }
+    .mission p {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 40px;
+    }
+    .mission-image {
+      width: 510px;
+    }
+
+    .info-section {
+      width: 1285px;
+      margin: 120px auto 80px;
+    }
+
+    .info-cards {
+      display: flex;
+      gap: 50px;
+      margin-top: 40px;
+      justify-content: space-between;
+    }
+
+    .info-section .title {
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 40px;
+      color: #222540;
+      text-align: center;
+    }
+
+    .info-card {
+      width: 360px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-section .seperator {
+      width: 3px;
+      background-color: #D9D9D9;
+      flex: 0 0 auto;
+    }
+
+    .info-card img {
+      width: 100%;
+      height: 196px;
+      object-fit: cover;
+    }
+
+    .info-card h3 {
+      font-weight: 700;
+      font-size: 24px;
+      color: #074264;
+      margin-top: 12px;;
+    }
+
+    .info-card .subtitle {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 25px;
+      color: #6A131F;
+      display: flex;
+      justify-content: space-between;
+      height: 25px;
+    }
+
+    .subtitle p {
+      margin: 0;
+    }
+
+    .info-card>p {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 40px;
+      color: #04273C;
+    }
+
+    .info-card .read-more {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 40px;
+      text-decoration: underline;
+      text-decoration-style: solid;
+      margin-top: 12px;
+      cursor: pointer;
+      color: #074264;
+    }
+  </style>
+</head>
+<body>
+  <m-header active="home"></m-header>
+
+  <!-- Carousel -->
+  <section class="carousel">
+    <img src="images/slider/pexels-rdne-7467939.jpg" class="active" />
+    <img src="images/slider/pexels-rdne-7467943.jpg" />
+    <img src="images/slider/pexels-rdne-7468184.jpg" />
+    <img src="images/slider/pexels-rdne-7468215.jpg" />
+  
+    <div class="carousel-caption active">
+      <div class="carousel-content">
+        <div class="carousel-number">7.1%</div>
+        <div class="carousel-description"><b>The percentage of veterans who face unemployment during their first year of transition</b></div>
+      </div>
+    </div>
+    <div class="carousel-caption">
+      <div class="carousel-content">
+        <div class="carousel-number">32%</div>
+        <div class="carousel-description"><b>Veterans who are employed in jobs beneath their skill and experience level</b></div>
+      </div>
+    </div>
+    <div class="carousel-caption">
+      <div class="carousel-content">
+        <div class="carousel-number">44%</div>
+        <div class="carousel-description"><b>Veterans who report significant challenges in reintegration into civilian or non-military roles</b></div>
+      </div>
+    </div>
+    <div class="carousel-caption">
+      <div class="carousel-content">
+        <div class="carousel-number">55%</div>
+        <div class="carousel-description">Veterans report difficulty in translating their military skills to civilian job requirements, highlighting a need for tailored workforce development programs</div>
+      </div>
+    </div>
+  </section>
+
+<!-- Veterans -->
+<section class="engagement-section">
+  <div class="engagement-wrapper veterans">
+    <div class="engagement-profile hover-group">
+      <div class="circle-image">
+        <img src="images/team/veteran.png" alt="Veteran">
+      </div>
+      <div class="engagement-button" onclick="window.open('veteranRegistration.html', '_blank')">I am Veterans</div>
+    </div>
+    <div class="engagement-message">
+      <p>You’ve worn the uniform, faced challenges most will never know, and carried a weight that deserves more than a simple thank you. At Operation Meraki, we offer more than gratitude — we offer community, connection, and resources to help you move forward with dignity, pride, and strength.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Volunteers -->
+<section class="engagement-section">
+  <div class="engagement-wrapper reversed volunteers">
+    <div class="engagement-profile hover-group">
+      <div class="circle-image">
+        <img src="images/team/volunteer.png" alt="Volunteer">
+      </div>
+      <div class="engagement-button" onclick="window.open('volunteerRegistration.html', '_blank')">I am Volunteers</div>
+    </div>
+    <div class="engagement-message">
+      <p>Volunteering with Operation Meraki means becoming a bridge between those who served and the life they’re striving to build. Your commitment helps veterans feel seen, supported, and empowered — one conversation, one action, one connection at a time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Donors -->
+<section class="engagement-section">
+  <div class="engagement-wrapper donors">
+    <div class="engagement-profile hover-group">
+      <div class="circle-image">
+        <img src="images/team/donor.png" alt="Donor">
+      </div>
+      <div class="engagement-button"
+        onclick="window.open('https://www.zeffy.com/en-US/fundraising/c95056db-d06b-407f-b4ba-5de61442d2e4', '_blank', 'noopener')">I am Donors </div>
+    </div>
+    <div class="engagement-message">
+      <p>Every contribution helps us provide life-changing services to veterans, offering them the support, resources, and community they need to succeed. <br><br> 
+      From mental health support and career training to reintegration programs, your generosity enables our heroes to thrive in their next chapter.</p>
+    </div>
+  </div>
+</section>
+
+<section class="video-section" style="padding: 40px 0; background: #f9f9f9;">
+  <div class="video-wrapper" style="max-width: 800px; margin: 0 auto; position: relative; padding-bottom: 45%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <iframe 
+      src="https://www.youtube.com/embed/3qpq9i6WlAE?start=5&rel=0" 
+      title="Operation Meraki Video" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+    </iframe>
+  </div>
+</section>
+
+  <section class="mission">
+    <div class="missions">
+      <div class="mission">
+        <h2>Our Mission</h2>
+        <p>We challenge and change the veteran transition landscape by helping our service members and their families bridge from the uniform to building new professional and personal lives.</p>
+      </div>
+      <div class="seperator"></div>
+      <div class="mission">
+        <h2>Our Vision</h2>
+        <p>Our vision is to address the post-military challenges faced by Veterans. Operation Meraki is dedicated to reducing underemployment among veterans and redirecting their emotional and cognitive capabilities towards a successful transition.</p>
+      </div>
+    </div>
+    <img class="mission-image" src="images/index/mission.png" alt="Mission" />
+  </section>
+
+ <section class="info-section">
+  <p class="title">Recent News</p>
+
+  <div class="info-cards">
+    <div class="info-card">
+      <img src="images/mission/problem.png" alt="The Problem" />
+      <h3>Navigating the Transition: Redefining Life After Military Service</h3>
+      <div class="subtitle">
+        <p>September 10, 2024</p>
+        <p>Michael Thomas</p>
+      </div>
+      <p>For many veterans, transitioning from military service to a civilian career—or what some call the “next mission” </p>
+      <a class="read-more">Read More</a>
+    </div>
+
+    <div class="seperator"></div>
+  
+    <div class="info-card">
+      <img src="images//mission/solution.png" alt="The Solution" />
+      <h3>A Simple Guide to Performance-Based Interviewing</h3>
+      <div class="subtitle">
+        <p>November 3, 2024</p>
+        <p>Michael Thomas</p>
+      </div>
+      <p>Performance-based interviewing (PBI) is about finding candidates with proven, real-world skills and experience. </p>
+      <a class="read-more">Read More</a>
+    </div>
+
+    <div class="seperator"></div>
+  
+    <div class="info-card">
+      <img src="images//mission/accomplishment.png" alt="Accomplishments" />
+      <h3>Navigating Veteran Transition: Strategies for a Successful Next Mission</h3>
+      <div class="subtitle">
+        <p>October 24, 2024</p>
+        <p>Michael Thomas</p>
+      </div>
+      <p>Veteran transition can be one of the most challenging phases of military service. </p>
+      <a class="read-more">Read More</a>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <m-footer></m-footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contact Us - Operation Meraki</title>
+    <link rel="icon" href="images/logo/logo.png" type="image/png" />
+    <link rel="stylesheet" href="get-involved.css" />
+    <style>
+      body {
+        background-color: white;
+      }
+      main {
+        width: 910px;
+        margin: 66px auto 50px;
+      }
+      .col {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+      }
+      .hero-section {
+        display: flex;
+      }
+      .contact {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: 442px;
+        gap: 10px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        background-color: #074264;
+        color: white;
+      }
+      .hero-title {
+        text-align: center;
+        font-weight: 700;
+        font-size: 28px;
+        margin-top: 72px;
+      }
+      .hero-description {
+        text-align: center;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 32px;
+        width: 389px;
+        margin: 0 auto;
+      }
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 307px;
+        margin: 48px auto 0 32px;
+      }
+      .contact-info-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+      }
+      .icon {
+        flex: 0 0 auto;
+        width: 25px;
+      }
+      .info {
+        font-weight: 500;
+        font-size: 14px;
+      }
+      .social-media {
+        margin-left: 32px;
+        margin-top: 48px;
+        display: flex;
+        gap: 18px;
+      }
+      .social-media img {
+        width: 23px;
+        height: 23px;
+        border: 1px solid #FFFFFF;
+        border-radius: 50%;
+        padding: 2px;
+      }
+      .contact-form {
+        width: 468px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        padding-top: 36px;
+        padding-right: 30px;
+        padding-left: 30px;
+        border: 3px solid #F0F3F5;
+        background-color: #FFFFFF;
+        color: #074264;
+      }
+      .contact-form .label {
+        font-weight: 700;
+      }
+      .contact-form .actions {
+        margin: 48px auto 36px 0;
+        display: flex;
+        justify-content: start;
+      }
+
+      .faq-section {
+        width: 648px;
+        margin-top: 95px;
+        margin-bottom: 90px;
+      }
+
+      .faq-title {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 40px;
+        letter-spacing: 3%;
+        color: var(--color-primary-900);
+        margin-bottom: 32px;
+      }
+
+      .faq-item {
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .faq-item+.faq-item {
+        border-top: 3px solid #D9D9D9;
+      }
+
+      .faq-q {
+        min-height: 68px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 40px;
+        letter-spacing: 3%;
+        color: #1E1F29;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .faq-q .arrow {
+        width: 14px;
+        height: 14px;
+        border-left: 2px solid var(--color-primary-900);
+        border-top: 2px solid var(--color-primary-900);
+        transform: rotate(225deg);
+        margin-right: 14px;
+        transition: transform 0.3s;
+      }
+
+      .hide-answer .arrow {
+        transform: rotate(45deg);
+      }
+
+      .faq-a {
+        padding-right: 48px;
+        line-height: 32px;
+        color: var(--color-primary-500);
+        margin-bottom: 12px;
+      }
+      .result {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .result img {
+        width: 70%;
+        margin: 0 auto;
+      }
+      .result .result-title {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+        color: var(--color-primary-500);
+        margin-bottom: 0;
+        margin-top: 16px;
+      }
+      .result .result-description {
+        font-weight: 500;
+        text-align: center;
+        width: 300px;
+        line-height: 32px;
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+      .result .seperator {
+        width: 300px;
+        height: 3px;
+        background-color: #D9D9D9;
+      }
+      .result m-button {
+        margin-bottom: 32px;
+      }
+      
+      .error { color:#c62828; font-size:14px; margin-top:-2px; margin-bottom:15px; }
+  .input-error { border:1px solid #c62828 !important; }
+
+
+      @media (max-width: 1024px) {
+  main {
+    width: 90%;
+    margin: 40px auto;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact, .contact-form {
+    width: 100%;
+    border-radius: 0;
+    border: none;
+  }
+
+  .contact {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 0;
+  }
+
+  .contact-form {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 24px;
+  }
+
+  .hero-title {
+    margin-top: 48px;
+    font-size: 24px;
+  }
+
+  .hero-description {
+    width: 90%;
+    font-size: 13px;
+    line-height: 28px;
+  }
+
+  .contact-info {
+    width: auto;
+    margin: 32px auto 0 20px;
+  }
+
+  .social-media {
+    margin-left: 20px;
+    margin-top: 32px;
+  }
+
+  .faq-section {
+    width: 90%;
+    margin-top: 72px;
+    margin-bottom: 60px;
+  }
+
+  .faq-title {
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 24px;
+  }
+
+  .faq-q {
+    font-size: 16px;
+  }
+
+  .faq-a {
+    padding-right: 16px;
+    font-size: 14px;
+  }
+
+  .result img {
+    width: 90%;
+  }
+
+  .result .result-title {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .result .result-description {
+    width: 80%;
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .result .seperator {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .hero-description {
+    font-size: 12px;
+    line-height: 24px;
+  }
+
+  .contact-info {
+    margin: 24px auto 0 16px;
+    gap: 18px;
+  }
+
+  .contact-info-item .info {
+    font-size: 13px;
+  }
+
+  .faq-title {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .faq-q {
+    font-size: 15px;
+  }
+
+  .faq-a {
+    font-size: 13px;
+  }
+
+  .result .result-title {
+    font-size: 20px;
+  }
+
+  .result .result-description {
+    font-size: 13px;
+  }
+
+  .social-media {
+    margin: 24px 0 0 16px;
+  }
+
+  .contact-form .label {
+    font-size: 14px;
+  }
+
+  .contact-form .actions {
+    margin: 32px 0;
+    justify-content: center;
+  }
+
+  .error { color:#c62828; font-size:14px; margin-top:6px; }
+  .input-error { border:1px solid #c62828 !important; }
+
+}
+
+    </style>
+    <script src="components/m-header.js" type="module"></script>
+    <script src="components/m-footer.js" type="module"></script>
+  </head>
+  <body class="page-form">
+    <m-header active="contact"></m-header>
+
+    <main>
+      <section class="hero-section">
+        <div class="contact">
+          <h1 class="hero-title">Contact Us</h1>
+          <p class="hero-description">
+            If you have questions or know of a Veteran who could benefit, get in touch with us today.
+          </p>
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <div class="icon">
+                <img src="images/contact/mail.svg" alt="mail" />
+              </div>
+              <div class="info">information@operationmeraki.org</div>
+            </div>
+            <div class="contact-info-item">
+              <div class="icon">
+                <img src="images/contact/location.svg" alt="location" />
+              </div>
+              <div class="info">4182 Worth Ave Columbus Ohio 43219</div>
+            </div>
+            <div class="contact-info-item">
+              <div class="icon">
+                <img src="images/contact/phone.svg" alt="phone" />
+              </div>
+              <div class="info">866.957.8940</div>
+            </div>
+          </div>
+         
+        </div>
+
+        <form class="contact-form" onsubmit="return validateForm(event)">
+  <div class="form">
+    <div class="row" style="margin-bottom: 24px;">
+      <div class="col">
+        <label class="label" for="firstName">First Name<span class="require-mark">*</span></label>
+        <input class="input" id="firstName" name="firstName" required />
+      </div>
+      <div class="col">
+        <label class="label" for="lastName">Last Name<span class="require-mark">*</span></label>
+        <input class="input" id="lastName" name="lastName" required />
+      </div>
+    </div>
+
+    <div style="width: 100%; padding-right: 16px; margin-bottom: 24px; display: flex; flex-direction: column; gap: 12px;">
+      <label class="label" for="email">Email<span class="require-mark">*</span></label>
+      <input class="input" id="email" name="email" type="email" required style="width: auto !important;" />
+    </div>
+
+    <div style="width: 100%; margin-right: 32px; margin-bottom: 24px; display: flex; flex-direction: column;">
+      <label class="label" for="message">Ask a question or leave a comment below</label>
+      <textarea class="input" id="message" name="message" placeholder="(Type here)" style="width: auto !important;"></textarea>
+    </div>
+
+    <div class="checkbox-item block" style="margin-bottom: 32px;">
+      <input type="checkbox" id="consent1" required />
+      <label class="label" for="consent1">By checking this box, you give us permission to contact you with the information provided.</label>
+    </div>
+
+    <div class="checkbox-item block">
+      <input type="checkbox" id="consent2" required />
+      <label class="label" for="consent2">I agree to receive communications related to events, programs, or volunteer opportunities.</label>
+    </div>
+
+    <div class="actions">
+      <m-button variant="primary" class="primary-action">Send Message</m-button>
+    </div>
+    <p id="formError" style="color: red; font-weight: 500; display: none; margin-top: 12px;">
+  Please complete all required fields and check both boxes.
+</p>
+  </div>
+
+  <div class="result hide">
+    <img src="images/program/high-five.svg" alt="success" />
+    <p class="result-title">Thanks for Reaching Out!</p>
+    <p class="result-description">The Operation Meraki team will reach out soon with a response</p>
+    <p class="seperator"></p>
+    <p class="result-description">View our upcoming events</p>
+    <m-button variant="primary" id="goToEvents">Events</m-button>
+  </div>
+</form>
+
+      </section>
+
+      <section class="faq-section">
+        <p class="faq-title">Frequently Asked Questions</p>
+        <div class="faq-item faq-1">
+          <div class="faq-q">
+            <div class="text">Do I have to be a veteran to participate in programs?</div>
+            <div class="arrow"></div>
+          </div>
+          <div class="faq-a faq-a-1 hide">Yes, family members are encouraged to join our programs as part of the healing process.</div>
+        </div>
+        <div class="faq-item faq-2">
+          <div class="faq-q">
+            <div class="text">What states do you have programs in currently?</div>
+            <div class="arrow"></div>
+          </div>
+          <div class="faq-a faq-a-2 hide">No, all Operation Meraki programs are completely free for veterans and their families.</div>
+        </div>
+        <div class="faq-item faq-3">
+          <div class="faq-q">
+            <div class="text">Do you have support groups for loved ones of veterans?</div>
+            <div class="arrow"></div>
+          </div>
+          <div class="faq-a faq-a-3 hide">No, all necessary equipment and supplies will be provided for the program.</div>
+        </div>
+        <div class="faq-item faq-4">
+          <div class="faq-q">
+            <div class="text">What type of camera equipment can I donate?</div>
+            <div class="arrow"></div>
+          </div>
+          <div class="faq-a faq-a-4 hide">Our programs are designed for all experience levels, from beginners to advanced. No prior experience is necessary.</div>
+        </div>
+      </section>
+      
+    </main>
+
+    <m-footer></m-footer>
+
+    <script src="script.js"></script>
+    <script>
+      const elements = {
+        faq1: () => document.querySelector('.faq-1'),
+        faq2: () => document.querySelector('.faq-2'),
+        faq3: () => document.querySelector('.faq-3'),
+        faq4: () => document.querySelector('.faq-4'),
+        faqA1: () => document.querySelector('.faq-a-1'),
+        faqA2: () => document.querySelector('.faq-a-2'),
+        faqA3: () => document.querySelector('.faq-a-3'),
+        faqA4: () => document.querySelector('.faq-a-4'),
+        form: () => document.querySelector('.form'),
+        submitButton: () => document.querySelector('.primary-action'),
+        result: () => document.querySelector('.result'),
+      }
+
+      function createAnswerToggler(faqElementGetter, answerElementGetter) {
+        return function () {
+          faqElementGetter().classList.toggle('hide-answer')
+          answerElementGetter().classList.toggle('hide')
+        }
+      }
+
+     function transitionToResult() {
+  const formEl = document.querySelector('.contact-form');
+  const errorEl = document.getElementById('formError');
+
+  // Check form validity
+  if (!formEl.checkValidity()) {
+    formEl.reportValidity();              // Shows native browser hints
+    errorEl.style.display = 'block';      // Show custom error
+    return;
+  }
+
+  // Valid: Hide error and show success
+  errorEl.style.display = 'none';
+  elements.form().classList.add('hide');
+  elements.result().classList.remove('hide');
+}
+
+      function listen(elementGetter, ev, fn) {
+        elementGetter().addEventListener(ev, (e) => {
+          e.preventDefault()
+          fn(e)
+        })
+      }
+
+      function wireUp() {
+        listen(elements.faq1, 'click', createAnswerToggler(elements.faq1, elements.faqA1))
+        listen(elements.faq2, 'click', createAnswerToggler(elements.faq2, elements.faqA2))
+        listen(elements.faq3, 'click', createAnswerToggler(elements.faq3, elements.faqA3))
+        listen(elements.faq4, 'click', createAnswerToggler(elements.faq4, elements.faqA4))
+        listen(elements.submitButton, 'click', transitionToResult)
+      }
+
+      wireUp()
+
+      document.getElementById('goToEvents').addEventListener('click', () => {
+  window.location.href = 'events.html';
+});
+
+    </script>
+
+    <script>
+/* ===== Live validation for Contact form ===== */
+const contactValidators = {
+  firstName: { pattern: /^[A-Za-z\s'-]{2,}$/, message: 'Please enter a valid first name' },
+  lastName:  { pattern: /^[A-Za-z\s'-]{2,}$/, message: 'Please enter a valid last name' },
+  email:     { pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Please enter a valid email address' }
+  // message is optional; skip strict pattern
+};
+
+function showFieldError(input, message) {
+  input.classList.add('input-error');
+  let err = input.nextElementSibling;
+  if (!err || !err.classList || !err.classList.contains('error')) {
+    err = document.createElement('div');
+    err.className = 'error';
+    input.insertAdjacentElement('afterend', err);
+  }
+  err.textContent = message;
+}
+
+function clearFieldError(input) {
+  input.classList.remove('input-error');
+  const err = input.nextElementSibling;
+  if (err && err.classList && err.classList.contains('error')) err.remove();
+}
+
+function validateField(id) {
+  const cfg = contactValidators[id];
+  if (!cfg) return true; // fields without validators are fine
+  const input = document.getElementById(id);
+  const val = (input.value || '').trim();
+  const ok = cfg.pattern.test(val);
+  ok ? clearFieldError(input) : showFieldError(input, cfg.message);
+  return ok;
+}
+
+function validateConsents() {
+  const c1 = document.getElementById('consent1');
+  const c2 = document.getElementById('consent2');
+
+  // place a combined error after the second checkbox
+  let err = c2.parentElement.querySelector('.error');
+  if (!c1.checked || !c2.checked) {
+    if (!err) {
+      err = document.createElement('div');
+      err.className = 'error';
+      c2.parentElement.appendChild(err);
+    }
+    err.textContent = 'Please check both boxes to continue.';
+    return false;
+  } else if (err) {
+    err.remove();
+  }
+  return true;
+}
+
+function validateContactForm() {
+  let valid = true;
+  valid &= validateField('firstName');
+  valid &= validateField('lastName');
+  valid &= validateField('email');
+  valid &= validateConsents();
+  return !!valid;
+}
+
+/* live bindings */
+(function bindLiveValidation(){
+  ['firstName','lastName','email'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', () => validateField(id));
+  });
+  ['consent1','consent2'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('change', validateConsents);
+  });
+})();
+</script>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
+  e.preventDefault(); // stop native submit
+
+  // Assuming your live validations already ran
+  const formData = {
+    firstName: document.getElementById('firstName').value.trim(),
+    lastName:  document.getElementById('lastName').value.trim(),
+    email:     document.getElementById('email').value.trim(),
+    message:   document.getElementById('message').value.trim(),
+    consent1:  document.getElementById('consent1').checked,
+    consent2:  document.getElementById('consent2').checked
+  };
+
+  try {
+    const res = await fetch('/api/routes/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+
+    // parse safely in case server returns HTML on error
+    const text = await res.text();
+    let data;
+    try { data = JSON.parse(text); } catch { data = { message: text }; }
+
+    if (res.ok) {
+      alert('Message sent successfully!');
+      // optional UI:
+      // document.querySelector('.form').classList.add('hide');
+      // document.querySelector('.result').classList.remove('hide');
+      // this.reset();
+    } else {
+      alert('Submission failed: ' + (data?.message || `HTTP ${res.status}`));
+    }
+  } catch (error) {
+    alert('Network error: ' + error.message);
+  }
+});
+</script>
+
+
+
+<script>
+function transitionToResult() {
+  const formEl = document.querySelector('.contact-form');
+  const errorEl = document.getElementById('formError');
+
+  // Run our custom validators first
+  const customOk = validateContactForm();
+
+  // Also leverage native checks (required + type="email")
+  const nativeOk = formEl.checkValidity();
+
+  if (!customOk || !nativeOk) {
+    formEl.reportValidity();           // native bubbles (for email/required)
+    errorEl.style.display = 'block';   // your existing red line
+    return;
+  }
+
+  // All good: hide error, show success block
+  errorEl.style.display = 'none';
+  elements.form().classList.add('hide');
+  elements.result().classList.remove('hide');
+}
+</script>
+
+
+
+  </body>
+</html>

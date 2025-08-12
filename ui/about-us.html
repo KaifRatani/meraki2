@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>About Us - Operation Meraki</title>
+    <link rel="icon" href="images/logo/logo.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #04273C;
+      }
+      h1 {
+        margin-top: 48px;
+        margin-bottom: 32px;
+        font-weight: 700;
+        font-size: 48px;
+        text-align: center;
+        color: #074264;
+      }
+      .subtitle {
+        width: 595px;
+        font-family: Raleway;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 40px;
+        text-align: center;
+      }
+      .data-prove {
+        margin-top: 78px;
+        background-color: #F0F3F5;
+        width: 100%;
+      }
+      .data-prove .items {
+        margin: 0 auto;
+        display: flex;
+        width: 1140px;
+        justify-content: space-between;
+      }
+      .data-prove .item {
+        padding-inline: 28px;
+        text-align: center;
+        height: 96px;
+        margin-top: 8px;
+      }
+      .data-prove .item .data {
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 40px;
+        margin-bottom: 4px;
+        color: #074264;
+      }
+      .data-prove .item .name {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 40px;
+      }
+      .founder {
+        display: flex;
+        width: 1140px;
+        margin: 0 auto;
+      }
+      .founder .intro {
+        flex: 1;
+        margin-right: 50px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .founder .intro .title {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 32px;
+        align-self: start;
+      }
+
+      .founder .intro .content {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 40px;
+      }
+
+      .founder .intro .cta-hint {
+        width: 572px;
+        height: 67px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 40px;
+      }
+      .founder img {
+        flex: 0 0 auto;
+        display: block;
+        width: 504px;
+        height: 533px;
+      }
+      .goal {
+        width: 1140px;
+        margin: 0 auto;
+        color: #04273C;
+        display: flex;
+        gap: 100px
+      }
+      .goal .item {
+
+      }
+      .goal .item .title {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 40px;
+      }
+      .goal .item .desc {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 40px;
+      }
+      .goal .seperator {
+        width: 3px;
+        height: 230px;
+        background-color: #D9D9D9;
+        flex: 0 0 3px
+      }
+      .community {
+        display: flex;
+        width: 1140px;
+        margin: 0 auto;
+      }
+      .community .intro {
+        flex: 1;
+        margin-left: 50px;
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .community .intro .title {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 32px;
+      }
+
+      .community .intro .content {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 40px;
+        width: 576px;
+      }
+      .community img {
+        flex: 0 0 auto;
+        display: block;
+        width: 504px;
+        height: 533px;
+      }
+      .approach {
+
+      }
+      .approach .title {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+      .approach p {
+        width: 540px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 40px;
+        text-align: center;
+      }
+      .approach p+p {
+        margin-top: 32px;
+      }
+      .join {
+        margin-bottom: 88px;
+        width: 1440;
+      }
+      .join .title {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 40px;
+        text-align: center;
+        margin-bottom: 48px;
+        color: #04273C;
+      }
+      .join .items {
+        display: flex;
+        margin: 0 auto;
+        gap: 16px;
+      }
+      .join .item {
+        width: 428px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      .join .item .name {
+        font-weight: 700;
+        font-size: 24px;
+        color: #074264;
+      }
+      .join .item .desc {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 40px;
+        width: 351px;
+        text-align: center;
+        margin-bottom: 24px;
+      }
+      .join .items .seperator {
+        width: 3px;
+        flex: 0 0 auto;
+        background-color: #D9D9D9;
+      }
+      .space {
+        height: 78px;
+      }
+    </style>
+    <script src="components/m-header.js" type="module"></script>
+    <script src="components/m-footer.js" type="module"></script>
+    <script src="components/m-button.js" type="module"></script>
+  </head>
+  <body>
+    <m-header active="about-us"></m-header>
+
+    <h1>About Us</h1>
+
+    <main>
+
+      <p class="subtitle">Operation Meraki is a non-profit organization founded in June 2020  to guide and support veterans through their transition process of returning home after active duty with a variety of programs. </p>
+      <p class="subtitle">In the spirit of the Greek word "Meraki," meaning to infuse soul, creativity, or love into what you do, our organization is dedicated to approaching this mission with utmost dedication and care.</p>
+
+      <section class="data-prove">
+        <div class="items">
+          <div class="item">
+            <div class="data">35,574</div>
+            <div class="name">Veterans experience homelessness</div>
+          </div>
+          <div class="item">
+            <div class="data">30%</div>
+            <div class="name">Veterans screen positive for PTSD</div>
+          </div>
+          <div class="item">
+            <div class="data">16.8</div>
+            <div class="name">Veteran suicides per day</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="space"></div>
+
+      <section class="founder">
+        <div class="intro">
+          <div class="title">Our Founder</div>
+          <div class="content">Operation Meraki was founded by Michael Thomas, a 9/11 First Responder and disabled combat Veteran, who personally faced the challenges of transitioning from the military. Inspired by his own struggles with anxiety, depression, undiagnosed PTSD, and suicidal thoughts, Michael created Operation Meraki to offer support, understanding, and a community for veterans to ensure that each finds strength, companionship, and support to overcome the hurdles of transition and start a fulfilling new chapter in life.</div>
+          <div class="cta-hint">Interested in the rest of our leadership team?</div>
+          <m-button variant="primary" onclick="location.href='leaders.html'">Our leaders</m-button>
+        </div>
+        <img src="images/about/founder.png" />
+      </section>
+
+      <div class="space"></div>
+
+      <section class="goal">
+        <div class="item">
+          <div class="title">Our Mission</div>
+          <div class="desc">We help our service members and their families transition from the uniform to new professional and personal lives by changing the veteran transition landscape.</div>
+        </div>
+        <div class="seperator"></div>
+        <div class="item">
+          <div class="title">Our Vision</div>
+          <div class="desc">Our vision is to tackle post-military challenges by reducing underemployment and facilitating a successful transition by harnessing their emotional and cognitive abilities.</div>
+        </div>
+      </section>
+
+      <div class="space"></div>
+
+      <section class="community">
+        <img src="images/about/community.png" />
+        <div class="intro">
+          <div class="title">Community Engagement</div>
+          <div class="content">Transitioning can be a solitary journey, and we recognize the importance of a robust support system. Operation Meraki actively facilitates community engagement through social events, networking opportunities, and mentorship programs. Our goal is to connect veterans with like-minded individuals, providing a sense of belonging that combats the isolation often experienced during this period. We believe that by fostering relationships and building a supportive community, veterans can navigate their journey with strength and resilience.</div>
+        </div>
+      </section>
+
+      <div class="space"></div>
+
+      <section class="approach">
+        <p class="title">Our Unique Approach</p>
+        <p>Born during the challenging times of the pandemic, Operation Meraki addresses gaps in veteran transition. Our tailored programs and the Scout to Pathfinder process provide personalized support, empowering veterans to confidently embrace their next mission. </p>
+        <p>We're not just an organization; we're a community committed to supporting veterans at every step. Join us on this transformative journey, where dedicated souls meet impactful service.</p>
+      </section>
+
+      <div class="space"></div>
+      <div class="space"></div>
+
+      <div class="join">
+        <div class="title">Join Us</div>
+        <div class="items">
+          <div class="item">
+            <div class="name">Programs</div>
+            <div class="desc">If you’re a veteran who would benefit from our programs or want to help out other veteran with their transition, check out the opportunities we have.</div>
+            <m-button variant="primary" onclick="location.href = 'programs.html'">View Program</m-button>
+          </div>
+          <div class="seperator"></div>
+          <div class="item">
+            <div class="name">Volunteer</div>
+            <div class="desc">Operation Meraki runs on volunteers and donations. We’d love to hae your support with either your time, supplies, or financially supporting our mission.</div>
+            <m-button variant="primary" onclick="location.href = 'get-involved.html'">Get Involved</m-button>
+          </div>
+          <div class="seperator"></div>
+          <div class="item">
+            <div class="name">Contact Us</div>
+            <div class="desc">We’re happy to answer any of your questions, hear your feedback and hear your ideas for making Operation Meraki reach more Veterans. </div>
+            <m-button variant="primary" onclick="location.href = 'contact-us.html'">Contact Us</m-button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <m-footer></m-footer>
+
+    <script src="script.js"></script>
+    <script>
+
+    </script>
+  </body>
+</html>

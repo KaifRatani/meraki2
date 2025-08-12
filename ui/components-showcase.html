@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <title>Components Showcase</title>
+    <script src="./components/m-button.js" type="module"></script>
+    <script src="./components/m-header.js" type="module"></script>
+    <script src="./components/m-footer.js" type="module"></script>
+    <script src="./components/m-dialog.js" type="module"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      body {
+        padding: 20px;
+        background-color: white;
+      }
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+      }
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Components Showcase</h1>
+    <p>Navigation</p>
+    <m-header active="home"></m-header>
+    <p>Buttons</p>
+    <div style="padding:20px; border: 3px dashed #9747FF; border-radius: 5px; width: min-content;">
+      <div class="row">
+        <div class="column">
+          <m-button variant="primary">Primary</m-button>
+          <m-button variant="primary" disabled>Primary</m-button>
+        </div>
+        <div class="column">
+          <m-button variant="secondary">Secondary</m-button>
+          <m-button variant="secondary" disabled>Secondary</m-button>
+        </div>
+        <div class="column">
+          <div style="background-color: #1C5A79; padding: 5px; border-radius: 5px; transform: translateY(-5px);">
+           <m-button variant="ghost">Ghost</m-button> 
+          </div>
+          <div style="background-color: #1C5A79; padding: 5px; border-radius: 5px; transform: translateY(-15px);">
+            <m-button variant="ghost" disabled>Ghost</m-button>
+          </div>
+        </div>
+        <div class="column">
+          <m-button>Default</m-button>
+          <m-button disabled>Default</m-button>
+        </div>
+      </div>
+    </div>
+
+    <p>Footer</p>
+    <m-footer></m-footer>
+
+    <p>Dialog</p>
+    <m-button variant="primary" id="open-dialog">Open Dialog</m-button>
+    <m-dialog id="dialog1">
+      <div>
+        <h1>Dialog</h1>
+        <p>This is a dialog</p>
+        <m-button variant="primary" id="close-dialog">Close</m-button>
+      </div>
+    </m-dialog>
+
+    <script>
+      const openDialogButton = document.getElementById('open-dialog');
+      const dialog = document.getElementById('dialog1')
+      openDialogButton.addEventListener('click', (event) => {
+        dialog.open()
+      });
+
+      const closeDialogButton = document.getElementById('close-dialog');
+      closeDialogButton.addEventListener('click', (event) => {
+        dialog.close()
+      });
+    </script>
+  </body>
+</html>

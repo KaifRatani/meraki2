@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Programs - Operation Meraki</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="components/m-header.js" type="module"></script>
+  <script src="components/m-footer.js" type="module"></script>
+  <style>
+    body {
+      margin: 0;
+      background-color: white;
+      color: #333;
+    }
+    h1 {
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 100%;
+      text-align: center;
+      color: var(--color-primary-500);
+    }
+    p.subtitle {
+      width: 788px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 40px;
+      text-align: center;
+      color: var(--color-primary-500);
+      margin: 0 auto;
+      margin-bottom: 16px;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    .program-wrapper {
+      width: 560px;
+      padding: 48px 0
+    }
+    .program-wrapper:not(:last-child) {
+      border-bottom: 1px solid #E0E0E0;
+    }
+    .program-wrapper:nth-child(1) .program, 
+    .program-wrapper:nth-child(3) .program {
+      border-right: 1px solid #E0E0E0;
+    }
+    .program {
+      flex: 0 1 300px;
+      padding: 20px;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .program img {
+      height: 200px;
+      width: 200px;
+    }
+    .program h3 {
+      margin-top: 32px;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 40px;
+      letter-spacing: 3%;
+      color: var(--color-primary-800);
+    }
+    .program p {
+      margin-top: 32px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 40px;
+      letter-spacing: 3%;
+      text-align: center;
+      color: var(--color-primary-500);
+    }
+    .program m-button {
+      margin-top: auto;
+    }
+    .program button:hover {
+      background-color: #003b71;
+    }
+
+    .main-content {
+      width: 1182px;
+      margin: 48px auto 80px;
+    }
+
+    .badge {
+      background-color: #003b71;
+      color: #fff;
+      border-radius: 999px;
+      padding: 0.5em 1em;
+      position: relative;
+      font-size: 12px;
+      left: 96px;
+      top: -54px;
+    }
+  </style>
+</head>
+<body>
+  <m-header active="programs"></m-header>
+
+  <main class="main-content">
+    <h1>All Programs</h1>
+    <p class="subtitle">We offer a variety of programs to help support our veterans. Our goal is to help veterans that then help other veterans, creating a cycle of growing, healing, and mentoring.</p>
+    <div class="grid">
+      <div class="program-wrapper">
+        <div class="program">
+          <img src="images/logo/logo.png" alt="Reset Logo" />
+          <h3>Reset</h3>
+          <p>Peer support groups are a safe space where Veterans can discuss day-to-day problems with other Veterans who have experienced trauma</p>
+          <m-button variant="primary" onclick="location.href='reset.html'">Learn More</m-button>
+        </div>
+      </div>
+      <div class="program-wrapper">
+        <div class="program">
+          <img src="images/logo/logo.png" alt="Rebuild Logo" />
+          <h3>Rebuild</h3>
+          <p>Peer support groups offer a safe space for discussing daily challenges and trauma with others who shared similar experiences.</p>
+          <m-button disabled variant="primary">Learn More</m-button>
+          <div class="badge">Coming Soon</div>
+        </div>
+      </div>
+      <div class="program-wrapper">
+        <div class="program">
+          <img src="images/logo/logo.png" alt="Refocus Logo" />
+          <h3>Refocus</h3>
+          <p>ReFocus uses photography and videography to address trauma through storytelling with hands-on workshops of camera basics, lighting, and conception.</p>
+          <m-button variant="primary" onclick="location.href='refocus.html'">Learn More</m-button>
+        </div>
+      </div>
+      <div class="program-wrapper">
+        <div class="program">
+          <img src="images/logo/logo.png" alt="ReEngage Logo" />
+          <h3>ReEngage</h3>
+          <p>ReEngage is a career development program for Veterans transitioning to new careers. This free workshop teaches skills like writing, reading, computer use, and interview prep.</p>
+          <m-button variant="primary" onclick="location.href='reengage.html'">Learn More</m-button>
+        </div>
+      </div>
+      <div class="program-wrapper">
+        <div class="program">
+          <img src="images/logo/logo.png" alt="Replant Logo" />
+          <h3>Replant</h3>
+          <p>Replant is a sustainable farming program with indoor gardens in community spaces. Veterans and community members gather weekly.</p>
+          <m-button disabled variant="primary">Learn More</m-button>
+          <div class="badge">Coming Soon</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <m-footer></m-footer>
+</body>
+</html>

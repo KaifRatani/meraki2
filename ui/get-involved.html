@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Get Involved - Operation Meraki</title>
+    <link rel="icon" href="images/logo/logo.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="components/m-button.js" type="module"></script>
+    <script src="components/m-dialog.js" type="module"></script>
+    <style>
+
+      input.input,
+select.input {
+  font-size: 16px;
+  padding: 0px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  width: 100%;
+  box-sizing: border-box;
+  appearance: none; /* Removes native dropdown styling in most browsers */
+  -webkit-appearance: none; /* Safari */
+  -moz-appearance: none; /* Firefox */
+}
+
+      h1 {
+        font-weight: 700;
+        font-size: 48px;
+        text-align: center;
+        color: #074264;
+        margin-top: 48px;
+        margin-bottom: 0;
+      }
+      main {
+        width: 1440px;
+        text-align: center;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .card-wrapper {
+        width: 50%;
+        padding-block: 64px;
+      }
+      .card-wrapper:nth-child(2n + 1) .hero-image-section {
+        border-right: 1px solid #D9D9D9;
+      }
+      .card-wrapper:not(:last-child):nth-last-of-type(2) {
+        border-bottom: 1px solid #D9D9D9;
+      }
+      .hero-image-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-block: 40px;
+      }
+      .card-wrapper:nth-child(4n + 3),
+      .card-wrapper:nth-child(4n + 4) {
+        border-top: 1px solid #D9D9D9;
+      }
+      .hero-image-wrapper {
+        position: relative;
+        width: 146px;
+        height: 146px;
+      }
+
+      .hero-image {
+        width: 82px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .hero-image-wrapper:before {
+        content: ' ';
+        width: 132px;
+        height: 132px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 3px solid #B22035;
+        border-radius: 50%;
+      }
+      .hero-image-wrapper:after {
+        content: ' ';
+        width: 142px;
+        height: 142px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 2px solid #B22035;
+        border-radius: 50%;
+      }
+
+      .hero-image-section h2 {
+        margin-top: 32px;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 40px;
+        color: #04273C;
+      }
+
+      .hero-image-section p {
+        margin-top: 32px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 40px;
+        text-align: center;
+        width: 545px;
+        color: #04273C;
+      }
+
+      .hero-image-section m-button {
+        margin-top: auto;
+      }
+
+      /* Dialog */
+      .dialog-content {
+        padding: 40px 36px;
+        background-color: var(--color-white);
+        width: 808px;
+        border-radius: 8px;
+      }
+
+      .dialog-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 64px;
+        width: 100%;
+      }
+
+      .dialog-header .title {
+        font-weight: 700;
+        font-size: 38px;
+        line-height: 100%;
+        color: var(--color-primary-500);
+      }
+
+      .dialog-header .step-indicator {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 100%;
+        text-align: right;
+        vertical-align: middle;
+        color: #726E66;
+        margin-left: 24px;
+      }
+
+      .dialog-header .close {
+        margin-left: auto;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+
+      .row {
+        display: flex;
+      }
+
+      .col {
+        flex: 1 1 0;
+      }
+
+      .share-call {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 22px;
+        margin-top: 32px;
+      }
+
+      .share-call .share-call-item {
+        width: 214px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .share-call-item-title {
+        font-weight: 500;
+        font-size: 18px;
+        text-align: center;
+        line-height: 40px;
+      }
+
+      .share-call-item-seperator {
+        width: 2px;
+        flex: 0 0 2px;
+        height: 200px;
+        background-color: #D9D9D9;
+      }
+
+      .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 30px;
+      }
+
+      @media (max-width: 1024px) {
+  h1 {
+    font-size: 36px;
+    margin-top: 32px;
+  }
+
+  main {
+    width: 100%;
+    padding: 0 24px;
+    flex-direction: column;
+  }
+
+  .card-wrapper {
+    width: 100%;
+    padding-block: 48px;
+    border-right: none !important;
+    border-bottom: 1px solid #D9D9D9;
+  }
+
+  .hero-image-section p {
+    width: 90%;
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .dialog-content {
+    width: 90%;
+    padding: 32px 24px;
+  }
+
+  .dialog-header .title {
+    font-size: 28px;
+  }
+
+  .dialog-header .step-indicator {
+    font-size: 16px;
+  }
+
+  .share-call {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .share-call-item-seperator {
+    display: none;
+  }
+
+  .share-call .share-call-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  .hero-image-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero-image-wrapper:before {
+    width: 110px;
+    height: 110px;
+  }
+
+  .hero-image-wrapper:after {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero-image {
+    width: 64px;
+  }
+
+  .hero-image-section h2 {
+    font-size: 24px;
+    line-height: 32px;
+    margin-top: 24px;
+  }
+
+  .hero-image-section p {
+    font-size: 14px;
+    line-height: 28px;
+    margin-top: 20px;
+    width: 90%;
+  }
+
+  .dialog-content {
+    padding: 24px 16px;
+  }
+
+  .dialog-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .dialog-header .title {
+    font-size: 22px;
+  }
+
+  .dialog-header .step-indicator {
+    font-size: 14px;
+    margin-left: 0;
+  }
+
+  .dialog-header .close {
+    align-self: flex-end;
+  }
+
+  .checkbox-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+    </style>
+    <script src="components/m-header.js" type="module"></script>
+    <script src="components/m-footer.js" type="module"></script>
+  </head>
+  <body class="page-form">
+    <m-header active="get-involved"></m-header>
+
+    <h1>Get Involved</h1>
+    <main>
+      
+      <div class="card-wrapper">
+        <div class="hero-image-section">
+          <div class="hero-image-wrapper">
+            <img class="hero-image" src="images/getinvolved/financial-support.svg" />
+          </div>
+          <h2>Financial Support</h2>
+          <p>
+            Operation Meraki thrives on generous financial support to fuel vital initiatives – from supplying essentials to strategic advertising for reaching more veterans in need. We're committed to transparency and annually report spending to meet nonprofit standards. Join us in making a lasting impact!
+          </p>
+          <m-button
+            variant="primary"
+            onclick="window.open('https://www.zeffy.com/en-US/fundraising/c95056db-d06b-407f-b4ba-5de61442d2e4', '_blank', 'noopener')"
+          >
+            Donate Now
+          </m-button>
+        </div>
+      </div>
+      <div class="card-wrapper">
+        <div class="hero-image-section">
+          <div class="hero-image-wrapper"  id="Directors">
+            <img class="hero-image" src="images/getinvolved/board-of-directors.svg"/>
+          </div>
+          <h2 >Board of Directors</h2>
+          <p>
+            Passionate about supporting transitioning Veterans? Join our Board of Directors. We seek individuals with expertise in nonprofit leadership, accounting, legal systems, policy, ecology, or climate advocacy. Apply or share this opportunity to create positive change for veterans and their families.
+          </p>
+          <m-button variant="primary" onclick="window.location.href='bod.html'">
+           Apply Now
+          </m-button>
+
+        </div>
+      </div>
+      <div class="card-wrapper">
+        <div class="hero-image-section">
+          <div class="hero-image-wrapper" id="Equipment">
+            <img class="hero-image" src="images/getinvolved/camera.svg" />
+          </div>
+          <h2 >Donate Camera Equipment</h2>
+          <p>
+            Do you want to put your old photo gear to good use? We are in need of all kinds of working equipment in good condition for our program. We’ll use your pre-owned gear to equip our classes and teach Veterans across the nation about the wonders of photography. 
+          </p>
+          <m-button variant="primary" onclick="window.location.href='equipment-donation.html'">
+  Apply Now
+</m-button>
+        </div>
+      </div>
+      <div class="card-wrapper">
+        <div class="hero-image-section">
+          <div class="hero-image-wrapper" id ="Volunteer">
+            <img class="hero-image" src="images/getinvolved/volunteer.svg" />
+          </div>
+          <h2 >Become a Volunteer</h2>
+          <p>
+            We enjoy the “ah-ha” moments, the shared stories, the excitement of a new job, and creating new therapies that improve life for Veterans. We build strong connections with our Veterans work hard to get them moving in the right direction. If this sounds like you, please volunteer today.
+          </p>
+          <m-button variant="primary" onclick="window.location.href='/volunteerRegistration.html'">Apply Now</m-button>
+        </div>
+      </div>
+    </main>
+
+    <m-footer></m-footer>
+<script>
+  document.addEventListener('open-bod-dialog', () => {
+    if (typeof showBodDialog === 'function') {
+      showBodDialog();
+    } else {
+      console.warn('showBodDialog() not found.');
+    }
+  });
+</script>
+
+    <m-dialog id="bodDialog">
+      <div class="dialog-content">
+        <form>
+          <div class="step1">
+            <div class="dialog-header">
+              <div class="title">Board of Directors Form</div>
+              <div class="step-indicator">Page 1 of 2</div>
+              <img class="close" src="images/program/close.svg" onclick="closeBodDialog()" />
+            </div>
+            <legend>General information</legend>
+            <div class="group">
+              <div class="item">
+                <label class="label">First Name<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">Last Name<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                 <label class="label">State<span class="require-mark">*</span></label>
+                <select id="state" name="state" class="input" required>
+                  <option value="">-- Select State --</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                </select>
+              </div>
+              <div class="item">
+                <label class="label">Email<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">Phone Number<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">Town<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <legend>How did you hear about us?</legend>
+                <div class="item">
+                  <input class="input" />
+                </div>
+              </div>
+              <div class="col">
+                <legend>Are you a Veteran?<span class="require-mark">*</span></legend>
+                <div class="checkbox-item" style="margin-bottom: 8px">
+                  <input type="checkbox" />
+                  <div class="label">Yes</div>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" />
+                  <div class="label">No</div>
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+              <m-button variant="primary" onclick="showBodPage2()">Next Page</m-button>
+            </div>
+          </div>
+          <div class="step2">
+            <div class="dialog-header">
+              <div class="title">Board of Directors Form</div>
+              <div class="step-indicator">Page 2 of 2</div>
+              <img class="close" src="images/program/close.svg" />
+            </div>
+            <legend>Upload Resume/CV<span class="require-mark">*</span></legend>
+            <div class="group">
+              <m-button>Browse Files</m-button>
+              <div style="color: var(--color-primary-500); padding-top: 12px;">No File Chosen</div>
+            </div>
+            <legend>Any skills that could help with our mission?</legend>
+            <textarea class="input" placeholder="(Type here)" style="margin-bottom: 12px;"></textarea>
+           
+            <div class="checkbox-item block" style="margin-bottom: 32px;">
+              <input type="checkbox" />
+              <div class="label">By checking this box, you give us permission to contact you with the information provided.</div>
+            </div>
+            <div class="actions">
+              <m-button onclick="showBodPage1()">
+                <img src="images/program/back.svg" />
+                Back
+              </m-button>
+              <m-button variant="primary" onclick="showBodResult()">Submit</m-button>
+            </div>
+          </div>
+          <div class="signed-up">
+            <div class="dialog-header">
+              <img class="close" src="images/program/close.svg" onclick="closeBodDialog()" />
+            </div>
+            <img class="hero" src="images/getinvolved/hugs.svg" />
+            <p class="title">Thanks! </p>
+            <div class="seperator"></div>
+            <div class="description">We couldn’t do this without people like you. 
+              We’ll be in touch via email soon.</div>
+            <div class="share-call">
+              <div class="share-call-item">
+                <p class="share-call-item-title">View our upcoming Events</p>
+                <m-button
+                  variant="primary"
+                  style="margin: 0 auto;"
+                  onclick="location.href = 'events.html'"
+                >Events</m-button>
+              </div>
+              <div class="share-call-item-seperator"></div>
+              <div class="share-call-item">
+                <p class="share-call-item-title">Know a friend who wants to help?</p>
+                <m-button style="margin: 0 auto;">Share</m-button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </m-dialog>
+
+    <m-dialog id="volunteerDialog">
+      <div class="dialog-content">
+        <form>
+          <div class="step1">
+            <div class="dialog-header">
+              <div class="title">Become a Volunteer Form</div>
+              <div class="step-indicator">Page 1 of 2</div>
+              <img class="close" src="images/program/close.svg" onclick="closeVolunteerDialog()" />
+            </div>
+            <legend>General information</legend>
+            <div class="group">
+              <div class="item">
+                <label class="label">First Name<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">Last Name<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">State<span class="require-mark">*</span></label>
+                <select id="state" name="state" class="input" required>
+                  <option value="">-- Select State --</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                </select>
+              </div>
+              <div class="item">
+                <label class="label">Email<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">Phone Number<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">Town<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <legend>How did you hear about us?</legend>
+                <div class="item">
+                  <input class="input" />
+                </div>
+              </div>
+              <div class="col">
+                <legend>How old are you?<span class="require-mark">*</span></legend>
+                <div class="item">
+                  <input class="input" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <legend style="margin-top: 48px;">Are you a Veteran?</legend>
+                <div class="checkbox-item">
+                  <input type="checkbox" />
+                  <div class="label">Yes</div>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" />
+                  <div class="label">No</div>
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+              <m-button variant="primary" onclick="showVolunteerPage2()">Next Page</m-button>
+            </div>
+          </div>
+
+          <div class="step2">
+            <div class="dialog-header">
+              <div class="title">Become a Volunteer Form</div>
+              <div class="step-indicator">Page 2 of 2</div>
+              <img class="close" src="images/program/close.svg" onclick="closeVolunteerDialog()" />
+            </div>
+            <legend class="legend">
+              Select the opportunities you’re interested in
+              <span class="require-mark">*</span>
+            </legend>
+            <div class="group">
+              <div class="checkbox-group">
+                <div class="checkbox-item">
+                  <input type="checkbox" />
+                  <div class="label">Feeling misunderstood</div>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" />
+                  <div class="label">Family life</div>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" />
+                  <div class="label">Lack of purpose</div>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" />
+                  <div class="label">Lack of support</div>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" />
+                  <div class="label">Other</div>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" />
+                  <div class="label">Finding work</div>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" />
+                  <div class="label">Trouble finding support</div>
+                </div>
+              </div>
+            </div>
+            <legend>Have any other skills that would help with our mission?</legend>
+            <div class="group">
+              <textarea class="input" placeholder="(Type here)"></textarea>
+              <div class="checkbox-item block">
+                <input type="checkbox" />
+                <div class="label">By checking this box, you give us permission to contact you with the information provided.</div>
+              </div>
+              <div class="checkbox-item block">
+                <input type="checkbox" />
+                <div class="label">I understand that all volunteer positions are subject to background check prior to starting.</div>
+              </div>
+            </div>
+            <div class="actions">
+              <m-button onclick="showVolunteerPage1()">
+                <img src="images/program/back.svg" />
+                Back
+              </m-button>
+              <m-button variant="primary" onclick="showVolunteerResult()">Submit</m-button>
+            </div>
+          </div>
+
+          <div class="signed-up">
+            <div class="dialog-header">
+              <img class="close" src="images/program/close.svg" onclick="closeVolunteerDialog()" />
+            </div>
+            <img class="hero" src="images/getinvolved/hugs.svg" />
+            <p class="title">Thanks! </p>
+            <div class="seperator"></div>
+            <div class="description">We couldn’t do this without people like you. 
+              We’ll be in touch via email soon.</div>
+            <div class="share-call">
+              <div class="share-call-item">
+                <p class="share-call-item-title">View our upcoming Events</p>
+                <m-button
+                  variant="primary"
+                  style="margin: 0 auto;"
+                  onclick="location.href = 'events.html'"
+                >Events</m-button>
+              </div>
+              <div class="share-call-item-seperator"></div>
+              <div class="share-call-item">
+                <p class="share-call-item-title">Know a friend who wants to help?</p>
+                <m-button style="margin: 0 auto;">Share</m-button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </m-dialog>
+
+    <m-dialog id="equipDialog">
+      <div class="dialog-content">
+        <form>
+          <div class="step1">
+            <div class="dialog-header">
+              <div class="title">Camera & Field Equipment Donation</div>
+              <div class="step-indicator"></div>
+              <img class="close" src="images/program/close.svg" onclick="closeEqiupDialog()" />
+            </div>
+            <legend>General information</legend>
+            <div class="group" style="margin-bottom: 36px">
+              <div class="item">
+                <label class="label">First Name<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">Last Name<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                 <label class="label">State<span class="require-mark">*</span></label>
+                <select id="state" name="state" class="input" required>
+                  <option value="">-- Select State --</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                </select>
+              </div>
+              <div class="item">
+                <label class="label">Email<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">Phone Number<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+              <div class="item">
+                <label class="label">Town<span class="require-mark">*</span></label>
+                <input class="input" />
+              </div>
+            </div>
+            <div class="row group">
+              <div class="col">
+                <legend>Shipping Information</legend>
+                <p>Temporary Address</p>
+                <p>Michael Thomas</p>
+                <p>321 Flat River St</p>
+                <p>Pickerington, Ohio 43147</p>
+              </div>
+              <div class="col">
+                <legend>Do you require a donation receipt?<span class="require-mark">*</span></legend>
+                <div class="checkbox-item">
+                  <input type="checkbox" />
+                  <div class="label">Yes</div>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" />
+                  <div class="label">No</div>
+                </div>
+              </div>
+            </div>
+            <div class="group" style="gap: 0">
+              <legend>What type of Camera and Field Equipment are you donating?</legend>
+              <textarea class="input" placeholder="(Type here)" style="margin-bottom: 12px;"></textarea>
+              <div class="checkbox-item block" style="margin-bottom: 8px;">
+                <input type="checkbox" />
+                <div class="label">
+                  By checking this box, you give us permission to contact you with the information provided.
+                  <span class="require-mark" style="font-size: 1em;">*</span>
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+              <m-button variant="primary" onclick="showEquipResult()">Submit</m-button>
+            </div>
+          </div>
+          <div class="signed-up">
+            <div class="dialog-header">
+              <img class="close" src="images/program/close.svg" onclick="closeEqiupDialog()" />
+            </div>
+            <img class="hero" src="images/getinvolved/hugs.svg" />
+            <p class="title">Thanks! </p>
+            <div class="seperator"></div>
+            <div class="description">We couldn’t do this without people like you. 
+              We’ll be in touch via email soon.</div>
+            <div class="share-call">
+              <div class="share-call-item">
+                <p class="share-call-item-title">View our upcoming Events</p>
+                <m-button
+                  variant="primary"
+                  style="margin: 0 auto;"
+                  onclick="location.href = 'events.html'"
+                >Events</m-button>
+              </div>
+              <div class="share-call-item-seperator"></div>
+              <div class="share-call-item">
+                <p class="share-call-item-title">Know a friend who wants to help?</p>
+                <m-button style="margin: 0 auto;">Share</m-button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </m-dialog>
+
+    <script src="script.js"></script>
+    <script>
+      const dom = {
+        bodDialog: document.querySelector('#bodDialog'),
+        volunteerDialog: document.querySelector('#volunteerDialog'),
+        equipDialog: document.querySelector('#equipDialog'),
+      }
+      function showBodDialog() {
+        console.log(dom.bodDialog)
+        dom.bodDialog.open()
+        showBodPage1()
+      }
+      function closeBodDialog() {
+        dom.bodDialog.close()
+      }
+      function showBodPage1() {
+        dom.bodDialog.querySelector('.step2').style.display = 'none'
+        dom.bodDialog.querySelector('.signed-up').style.display = 'none'
+        dom.bodDialog.querySelector('.step1').style.display = 'block'
+      }
+      function showBodPage2() {
+        dom.bodDialog.querySelector('.step1').style.display = 'none'
+        dom.bodDialog.querySelector('.signed-up').style.display = 'none'
+        dom.bodDialog.querySelector('.step2').style.display = 'block'
+      }
+      function showBodResult() {
+        dom.bodDialog.querySelector('.step1').style.display = 'none'
+        dom.bodDialog.querySelector('.step2').style.display = 'none'
+        dom.bodDialog.querySelector('.signed-up').style.display = 'flex'
+      }
+      function showVolunteerDialog() {
+        dom.volunteerDialog.open()
+        showVolunteerPage1()
+      }
+      function closeVolunteerDialog() {
+        dom.volunteerDialog.close()
+      }
+      function showVolunteerPage1() {
+        dom.volunteerDialog.querySelector('.step2').style.display = 'none'
+        dom.volunteerDialog.querySelector('.signed-up').style.display = 'none'
+        dom.volunteerDialog.querySelector('.step1').style.display = 'block'
+      }
+      function showVolunteerPage2() {
+        dom.volunteerDialog.querySelector('.step1').style.display = 'none'
+        dom.volunteerDialog.querySelector('.signed-up').style.display = 'none'
+        dom.volunteerDialog.querySelector('.step2').style.display = 'block'
+      }
+      function showVolunteerResult() {
+        dom.volunteerDialog.querySelector('.step1').style.display = 'none'
+        dom.volunteerDialog.querySelector('.step2').style.display = 'none'
+        dom.volunteerDialog.querySelector('.signed-up').style.display = 'flex'
+      }
+      function showEqiupDialog() {
+        dom.equipDialog.open()
+        showEquipPage1()
+      }
+      function closeEqiupDialog() {
+        dom.equipDialog.close()
+      }
+      function showEquipPage1() {
+        dom.equipDialog.querySelector('.signed-up').style.display = 'none'
+        dom.equipDialog.querySelector('.step1').style.display = 'block'
+      }
+      function showEquipResult() {
+        dom.equipDialog.querySelector('.step1').style.display = 'none'
+        dom.equipDialog.querySelector('.signed-up').style.display = 'flex'
+      }
+      function wireUp() {
+      }
+      wireUp()
+    </script>
+
+    <script>
+const validatorPatterns = {
+  name: /^[a-zA-Z\s'-]{2,}$/,
+  email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+  phone: /^\d{10}$/,
+  town: /^[a-zA-Z\s'-]{2,}$/,
+  state: /^[a-zA-Z\s'-]{2,}$/
+};
+
+function validateInputsInStep(stepElement) {
+  const inputs = stepElement.querySelectorAll('input.input');
+  let valid = true;
+  let messages = [];
+
+  inputs.forEach(input => {
+    const labelText = input.closest('.item')?.querySelector('label')?.textContent || '';
+    const value = input.value.trim();
+    let pattern;
+
+    if (labelText.includes('Email')) pattern = validatorPatterns.email;
+    else if (labelText.includes('Phone')) pattern = validatorPatterns.phone;
+    else if (labelText.includes('Town')) pattern = validatorPatterns.town;
+    else if (labelText.includes('State')) pattern = validatorPatterns.state;
+    else pattern = validatorPatterns.name;
+
+    if (!pattern.test(value)) {
+      valid = false;
+      messages.push(`${labelText} is invalid.`);
+    }
+  });
+
+  return { valid, messages };
+}
+
+function validateCheckboxGroup(stepElement, groupSelector, requireOne = true, label = '') {
+  const boxes = stepElement.querySelectorAll(groupSelector);
+  const checked = Array.from(boxes).filter(cb => cb.checked);
+  if (requireOne && checked.length < 1) {
+    return { valid: false, messages: [`Please select ${label || 'a required option'}.`] };
+  }
+  if (!requireOne && checked.length !== 1) {
+    return { valid: false, messages: [`Please select only one ${label || 'option'}.`] };
+  }
+  return { valid: true, messages: [] };
+}
+
+function displayValidationMessages(button, messages) {
+  const existing = button.parentElement.querySelector('.validation-error');
+  if (existing) existing.remove();
+  if (messages.length > 0) {
+    const div = document.createElement('div');
+    div.className = 'validation-error';
+    div.style.color = 'red';
+    div.style.marginTop = '12px';
+    div.innerHTML = messages.map(m => `<div>${m}</div>`).join('');
+    button.parentElement.appendChild(div);
+  }
+}
+
+function setupFormValidation(dialogId, step1Selector, step2Selector, nextHandler, submitHandler, step2SelectorIsOptional = false) {
+  const dialog = document.getElementById(dialogId);
+  if (!dialog) return;
+
+  const step1 = dialog.querySelector(step1Selector);
+  const step2 = dialog.querySelector(step2Selector);
+  const nextBtn = step1?.querySelector('m-button[onclick^="show"]');
+  const submitBtn = step2?.querySelector('m-button[onclick^="show"]');
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const inputValidation = validateInputsInStep(step1);
+      const checkboxValidation = validateCheckboxGroup(step1, '.row .col:last-child input[type="checkbox"]', false, 'Yes or No');
+      const allValid = inputValidation.valid && checkboxValidation.valid;
+      const allMessages = [...inputValidation.messages, ...checkboxValidation.messages];
+      displayValidationMessages(nextBtn, allMessages);
+      if (allValid && typeof window[nextHandler] === 'function') window[nextHandler]();
+    });
+  }
+
+  if (submitBtn && !step2SelectorIsOptional) {
+    submitBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const checkboxValidation = validateCheckboxGroup(step2, '.checkbox-item input[type="checkbox"]', true, 'at least one checkbox');
+      displayValidationMessages(submitBtn, checkboxValidation.messages);
+      if (checkboxValidation.valid && typeof window[submitHandler] === 'function') window[submitHandler]();
+    });
+  }
+}
+
+setupFormValidation('bodDialog', '.step1', '.step2', 'showBodPage2', 'showBodResult');
+setupFormValidation('volunteerDialog', '.step1', '.step2', 'showVolunteerPage2', 'showVolunteerResult');
+setupFormValidation('equipDialog', '.step1', '.step2', 'showEquipPage2', 'showEquipResult', true);
+</script>
+
+
+  </body>
+</html>
